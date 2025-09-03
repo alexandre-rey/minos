@@ -8,8 +8,8 @@ CC=clang
 CFLAGS="-std=c11 -O2 -g3 -Wall -Wextra --target=riscv32-unknown-elf -fno-stack-protector -ffreestanding -nostdlib"
 
 # Build the kernel
-$CC $CFLAGS -Wl,-Tkernel.ld -Wl,-Map=kernel.map -o kernel.elf \
+$CC $CFLAGS -Wl,-Tkernel.ld -Wl,-Map=out/kernel.map -o out/kernel.elf \
     kernel.c
 
 
-$QEMU -machine virt -bios default -nographic -serial mon:stdio --no-reboot -kernel kernel.elf
+$QEMU -machine virt -bios default -nographic -serial mon:stdio --no-reboot -kernel out/kernel.elf
