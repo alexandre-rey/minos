@@ -31,12 +31,14 @@ void putchar(char ch)
 void kernel_main(void)
 {
     const char *s = "\n\nHello World!\n";
-    
-    for(int i = 0; s[i] != '\0'; i++) {
+
+    for (int i = 0; s[i] != '\0'; i++)
+    {
         putchar(s[i]);
     }
 
-    for(;;){
+    for (;;)
+    {
         __asm__ __volatile__("wfi");
     }
 }
